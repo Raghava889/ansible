@@ -7,10 +7,10 @@
     package:
      name: "{{ item }}"
      state: present
-  loops:
-  - nginx
-  - git
-  - mysql
+    loop:
+      - nginx
+      - git
+      - mysql
 
 
   
