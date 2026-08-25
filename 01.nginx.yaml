@@ -11,6 +11,12 @@
       private: true
 
   tasks:
+    - name: Check username validity
+      fail:
+        msg: "Access Denied! Incorrect password entered."
+      when: password != "raghava"    
+
+  tasks:
     - name: Check password validity
       fail:
         msg: "Access Denied! Incorrect password entered."
