@@ -13,7 +13,7 @@
   tasks:
     - name: Check username validity
       fail:
-        msg: "Access Denied! Incorrect password entered."
+        msg: "Access Denied! Incorrect username entered."
       when: username != "raghava"    
 
     - name: Check password validity
