@@ -1,14 +1,11 @@
-- name: user creation or check
+- name: user check
   hosts: ansiblenode
   become: yes
   tasks:
-  - name: check roboshop user is present or not
-    command: id roboshop
+  - name: checking user
+    command: id raghava
     register: user_output
     ignore_errors: true
-  - name: prit user_output
-    debug:
+  - name: print the user info
+    debug: 
       msg: "{{ user_output }}"
-  - name: creating the user
-    command: useradd roboshop
-    when: user_output.rc != 0 
