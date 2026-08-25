@@ -16,7 +16,6 @@
         msg: "Access Denied! Incorrect password entered."
       when: username != "raghava"    
 
-  tasks:
     - name: Check password validity
       fail:
         msg: "Access Denied! Incorrect password entered."
