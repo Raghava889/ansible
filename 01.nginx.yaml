@@ -20,7 +20,7 @@
       fail:
         msg: "Access Denied! Incorrect password entered."
       when: password != "sirihari"
-
+      no_log: true
     - name: print the information
       debug:
         msg: "username is: {{ username }}, password is : {{ password }}"
