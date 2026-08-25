@@ -1,0 +1,14 @@
+- name: Package installing
+  hosts: ansible-node
+  become: yes
+  tasks:
+
+  - name: Installing the packages
+    package:
+     name: nginx
+     state: present
+  - name: starting the package
+    service:
+     name: nginx
+     state: started
+     enabled: yes
