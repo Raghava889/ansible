@@ -6,7 +6,7 @@
   - name: installing mulitple packages
     package:
      name: "{{ item }}"
-     state: present
+     state: absent
     loop:
       - nginx
       - git
