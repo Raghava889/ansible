@@ -1,0 +1,12 @@
+- name: Packages installation
+  hosts: ansiblenode
+  become: yes
+  tasks:
+  - name: multiple packages are installing
+    package:
+      name: "{{ item.name }}"
+      state: "{{ item.state }}"
+    loop:
+     - { name: "nginx", state: "present"}
+     - { name: "mysql", state: "absent"}
+     - { name: "git", state: "present"}
