@@ -1,9 +1,16 @@
-- name: Package installing
-  hosts: ansible-node
-  become: yes
-  tasks:
+- name: demo on prompt
+  hosts: local
+  connection: local
+  vars_prompt:
+  - name: username
+    prompt: "Please enter the username"
+    private: false
 
-  - name: Installing the packages
-    package:
-     name: nginx
-     state: absent
+  - name: password
+    prompt: "please enter the password"
+    private: true
+
+  tasks:
+  - name: print the information
+    debug:
+      mesg: "username is : {{ username }}, password is : {{ password }}"
