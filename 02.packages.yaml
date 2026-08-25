@@ -1,0 +1,16 @@
+- name: multiple packages are installing 
+  hosts: ansiblenode
+  become: yes
+  tasks:
+
+  - name: installing mulitple packages
+    package:
+     name: "{{ item }}"
+     state: present
+  loops:
+  - nginx
+  - git
+  - mysql
+
+
+  
