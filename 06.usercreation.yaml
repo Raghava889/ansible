@@ -9,3 +9,6 @@
   - name: prit user_output
     debug:
       msg: "{{ user_output }}"
+  - name: creating the user
+    command: useradd roboshop
+    when: user_output.rc != 0 
