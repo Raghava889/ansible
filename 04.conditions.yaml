@@ -2,12 +2,12 @@
   hosts: ansiblenode
   become: yes
   tasks:
-  - name: print if redhat
+  - name: print if RedHat
     debug: 
-      msg: "os family is red-hat, package manager is dnf"
-    when: ansible_facts.os_family == "redhat"
+      msg: "os family is RedHat, package manager is dnf"
+    when: ansible_facts.os_family == "RedHat"
   - name: print if debian
     debug: 
-      msg: "os family is debian, package manager is apt-get"
+      msg: "os family is Debian, package manager is apt-get"
     when: ansible_facts.os_family == "Debian"
   
