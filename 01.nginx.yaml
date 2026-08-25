@@ -6,9 +6,4 @@
   - name: Installing the packages
     package:
      name: nginx
-     state: present
-  - name: starting the package
-    service:
-     name: nginx
-     state: started
-     enabled: yes
+     state: absent
