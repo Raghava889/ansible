@@ -2,10 +2,21 @@
   hosts: ansiblenode
   become: yes
   tasks:
-  - name: checking user
-    command: id raghava
-    register: user_output
-    ignore_errors: true
-  - name: print the user info
-    debug: 
-      msg: "{{ user_output }}"
+    - name: checking user
+      command: id raghava
+      register: user_output
+      ignore_errors: true
+
+    - name: print the user info
+      debug: 
+        msg: "{{ user_output }}"
+
+    - name: user creation
+      command: useradd raghava
+      register: output_raghava
+      when: user_output.rc != 0    # 🌟 Safety gate added here!
+
+    - name: printing the user info
+      debug:
+        msg: "{{ output_raghava }}"
+      when: user_output.rc != 0    # 🌟 Skips printing if no user was made!
